@@ -1,32 +1,41 @@
 # gitflow-iac-sandbox
 
-PURPOSE:
+Practice repo: Gitflow branching, CI/CD via GitHub Actions, CloudFormation → Terraform.
 
-Practice Gitflow based development
+## Branching
 
-Setup CI/CD via Github Actions
+<img src="img/gitflow.svg" width="500" alt="Gitflow diagram">
 
-Perform a simple Cloud Formation -> Terraform
+`main` and `develop` are protected — work happens on `feature/<TICKET>-<description>`, branched from `develop`, PR'd back in.
 
+```bash
+git checkout -b feature/LEARN-XXX-description develop
+git push -u origin feature/LEARN-XXX-description
+gh pr create --base develop --title "LEARN-XXX -- Description"
+```
 
-SETUP:
-Repository: (Insert Link Here)
-AWS Account: john-dev
-AWS Setup:
+`setup/gitflow.sh` bootstraps this on a fresh clone — creates `develop`, applies branch protection.
 
-Mac Req: 
-brew install gh
-brew install awscli
+## CI/CD
+*in progress — LEARN-102*
 
-chmod +x setup/gitflow.sh
+## CloudFormation → Terraform
+*not started*
 
+---
 
-"Ticket Name" -> LEARN-1000
+**Setup**
 
+```bash
+brew install gh awscli
+chmod +x setup/gitflow.sh && ./setup/gitflow.sh
+```
 
+AWS account: `john-dev`
 
+**Progress**
 
-
-
-
-
+| Ticket | Description | Status |
+|---|---|---|
+| LEARN-101 | Repo structure, gitflow script, branch protection | done |
+| LEARN-102 | GitHub Actions CI workflow | in progress |

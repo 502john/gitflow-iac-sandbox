@@ -43,7 +43,12 @@ done
 echo "Setup complete: main + develop exist, develop pushed, branch protection applied."
 echo "Create your first feature branch from develop:"
 echo "  git checkout -b feature/{TICKET}--{PR_NAME} develop"
+echo " git commit -m "{TICKET} -- message"
 
 echo "After committing, push and open a PR into develop:"
 echo "  git push -u origin feature/{TICKET}--PR_NAME}"
 echo "  gh pr create --base develop --title 'title' --body 'body'"
+
+echo "After merging PR on GitHub"
+echo "  git checkout develop"
+echo "  git pull"
